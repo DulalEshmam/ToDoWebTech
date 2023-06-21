@@ -1,33 +1,33 @@
-package de.htwberlin.webtech.todoApp.entity;
+package de.htwberlin.webtech.todoApp.web.api;
 
-import jakarta.persistence.*;
+import de.htwberlin.webtech.todoApp.entity.TodoEntity;
+
 import java.util.Set;
 
+public class UserApi {
 
-@Entity(name = "users")
-public class UserEntity {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
     private String name;
     private String username;
     private String password;
-
-    @OneToMany(mappedBy = "user")
     private Set<TodoEntity> todos;
 
-    protected UserEntity() {}
-
-    public UserEntity(String name, String username, String password) {
+    public UserApi(Long userId, String name, String username, String password, Set<TodoEntity> todos) {
+        this.userId = userId;
         this.name = name;
         this.username = username;
         this.password = password;
+        this.todos = todos;
     }
+
     public Long getUserId() {
         return userId;
     }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     public String getName() {
         return name;
     }

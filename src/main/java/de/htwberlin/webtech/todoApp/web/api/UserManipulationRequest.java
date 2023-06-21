@@ -1,33 +1,25 @@
-package de.htwberlin.webtech.todoApp.entity;
+package de.htwberlin.webtech.todoApp.web.api;
 
-import jakarta.persistence.*;
+import de.htwberlin.webtech.todoApp.entity.TodoEntity;
+
 import java.util.Set;
 
-
-@Entity(name = "users")
-public class UserEntity {
+public class UserManipulationRequest {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
     private String name;
     private String username;
     private String password;
-
-    @OneToMany(mappedBy = "user")
     private Set<TodoEntity> todos;
 
-    protected UserEntity() {}
-
-    public UserEntity(String name, String username, String password) {
+    public UserManipulationRequest(String name, String username, String password, Set<TodoEntity> todos) {
         this.name = name;
         this.username = username;
         this.password = password;
+        this.todos = todos;
     }
-    public Long getUserId() {
-        return userId;
-    }
+    public UserManipulationRequest() {}
+
     public String getName() {
         return name;
     }
@@ -35,7 +27,6 @@ public class UserEntity {
     public void setName(String name) {
         this.name = name;
     }
-
     public String getUsername() {
         return username;
     }
@@ -51,7 +42,6 @@ public class UserEntity {
     public void setPassword(String password) {
         this.password = password;
     }
-
     public Set<TodoEntity> getTodos() {
         return todos;
     }
@@ -59,4 +49,5 @@ public class UserEntity {
     public void setTodos(Set<TodoEntity> todos) {
         this.todos = todos;
     }
+
 }

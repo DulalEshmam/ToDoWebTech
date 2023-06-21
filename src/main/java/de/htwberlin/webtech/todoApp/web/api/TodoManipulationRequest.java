@@ -4,18 +4,14 @@ import de.htwberlin.webtech.todoApp.entity.UserEntity;
 
 import java.util.Date;
 
-public class ToDoApi {
-
-    private long id;
+public class TodoManipulationRequest {
     private String title;
     private String description;
     private String status;
-
     private Date date;
     private UserEntity user;
 
-    public ToDoApi(long id, String title, String description, String status, Date date, UserEntity user) {
-        this.id = id;
+    public TodoManipulationRequest(String title, String description, String status, Date date, UserEntity user) {
         this.title = title;
         this.description = description;
         this.status = status;
@@ -23,13 +19,7 @@ public class ToDoApi {
         this.user = user;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    public TodoManipulationRequest() {}
 
     public String getTitle() {
         return title;
@@ -50,7 +40,6 @@ public class ToDoApi {
     public UserEntity getUser() {
         return user;
     }
-
 
     public String getStatus() {
         return status;
