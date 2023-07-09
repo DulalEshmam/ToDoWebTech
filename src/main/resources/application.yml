@@ -15,7 +15,7 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
         jdbc:
           time_zone: UTC
-    show-sql: false # Set true for debugging
+    show-sql: true # Set true for debugging
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update # (create, create-drop, validate, update)

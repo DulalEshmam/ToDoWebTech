@@ -3,6 +3,7 @@ package de.htwberlin.webtech.todoApp.web;
 import de.htwberlin.webtech.todoApp.service.TodoService;
 import de.htwberlin.webtech.todoApp.web.api.ToDoApi;
 import de.htwberlin.webtech.todoApp.web.api.TodoManipulationRequest;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class ToDoController {
     }
 
     @PostMapping(path = "/api/v1/todos")
-    public ResponseEntity<List<ToDoApi>> createTodo(@RequestBody TodoManipulationRequest request) {
+    public ResponseEntity<List<ToDoApi>> createTodo(@Valid @RequestBody TodoManipulationRequest request) {
         var todo = todoService.create(request);
         URI uri = URI.create("/api/v1/users/" + todo.getId());
         return ResponseEntity.created(uri).build();

@@ -31,7 +31,7 @@ public class TodoService {
     }
 
     public ToDoApi create(TodoManipulationRequest request) {
-        var todoEntity = new TodoEntity(request.getTitle(), request.getDescription(), request.getStatus(), request.getDate(), request.getUser());
+        var todoEntity = new TodoEntity(request.getTitle(), request.getStatus(), request.getDate());
         todoEntity = todoRepository.save(todoEntity);
         return transformEntity(todoEntity);
     }
@@ -40,10 +40,8 @@ public class TodoService {
         return new ToDoApi(
                 todoEntity.getId(),
                 todoEntity.getTitle(),
-                todoEntity.getDescription(),
                 todoEntity.getStatus(),
-                todoEntity.getDate(),
-                todoEntity.getUser()
+                todoEntity.getDate()
         );
     }
 
@@ -54,10 +52,8 @@ public class TodoService {
         }
         var todoEntity = todoEntityOptional.get();
         todoEntity.setTitle(request.getTitle());
-        todoEntity.setDescription(request.getDescription());
         todoEntity.setStatus(request.getStatus());
         todoEntity.setDate(request.getDate());
-        todoEntity.setUser(request.getUser());
         todoEntity = todoRepository.save(todoEntity);
         return transformEntity(todoEntity);
     }

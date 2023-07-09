@@ -1,22 +1,23 @@
 package de.htwberlin.webtech.todoApp.web.api;
 
-import de.htwberlin.webtech.todoApp.entity.UserEntity;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.Date;
 
 public class TodoManipulationRequest {
+    @Size(min = 3, max = 100, message = "Title must be between 3 and 100 characters")
     private String title;
-    private String description;
+    @NotBlank(message = "Status must not be blank")
     private String status;
+    @NotNull(message = "Date must not be blank")
     private Date date;
-    private UserEntity user;
 
-    public TodoManipulationRequest(String title, String description, String status, Date date, UserEntity user) {
+    public TodoManipulationRequest(String title, String status, Date date) {
         this.title = title;
-        this.description = description;
         this.status = status;
         this.date = date;
-        this.user = user;
     }
 
     public TodoManipulationRequest() {}
@@ -27,18 +28,6 @@ public class TodoManipulationRequest {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public UserEntity getUser() {
-        return user;
     }
 
     public String getStatus() {

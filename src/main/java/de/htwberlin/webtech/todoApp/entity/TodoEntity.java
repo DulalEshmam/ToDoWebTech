@@ -10,22 +10,16 @@ public class TodoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-    private String description;
     private String status;
 
     private Date date;
-    @ManyToOne
-    //@Column(nullable = false)
-    private UserEntity user;
 
     public TodoEntity() {}
 
-    public TodoEntity(String title, String description, String status, Date date, UserEntity user) {
+    public TodoEntity(String title, String status, Date date) {
         this.title = title;
-        this.description = description;
         this.status = status;
         this.date = date;
-        this.user = user;
     }
 
     public int getId() {
@@ -40,22 +34,6 @@ public class TodoEntity {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
     public String getStatus() {
         return status;
     }

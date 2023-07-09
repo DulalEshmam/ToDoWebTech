@@ -1,26 +1,19 @@
 package de.htwberlin.webtech.todoApp.web.api;
 
-import de.htwberlin.webtech.todoApp.entity.UserEntity;
-
 import java.util.Date;
 
 public class ToDoApi {
 
     private long id;
     private String title;
-    private String description;
     private String status;
 
     private Date date;
-    private UserEntity user;
-
-    public ToDoApi(long id, String title, String description, String status, Date date, UserEntity user) {
+    public ToDoApi(long id, String title, String status, Date date) {
         this.id = id;
         this.title = title;
-        this.description = description;
         this.status = status;
         this.date = date;
-        this.user = user;
     }
 
     public long getId() {
@@ -38,19 +31,6 @@ public class ToDoApi {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
 
     public String getStatus() {
         return status;
