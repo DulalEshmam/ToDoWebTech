@@ -26,7 +26,7 @@ public class ToDoController {
     @PostMapping(path = "/api/v1/todos")
     public ResponseEntity<List<ToDoApi>> createTodo(@Valid @RequestBody TodoManipulationRequest request) {
         var todo = todoService.create(request);
-        URI uri = URI.create("/api/v1/users/" + todo.getId());
+        URI uri = URI.create("/api/v1/todos/" + todo.getId());
         return ResponseEntity.created(uri).build();
     }
 
