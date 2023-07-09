@@ -1,26 +1,16 @@
 spring:
   datasource:
-    url: jdbc:h2:file:/Users/eshmamdulal/Desktop/ToDo-List/todoApp/database
-    username: eshmamdulal
-    password: eshmamdulal15
-    driverClassName: org.h2.Driver
-  h2:
-    console:
-      enabled: true
-      path: /db-console
+    url: ${Credentials.DATABASE_URL}
+    username: ${Credentials.PGUSER}
+    password: ${Credentials.PGPASSWORD}
+    driverClassName: org.postgresql.Driver
   jpa:
     properties:
       hibernate:
-        # The SQL dialect makes Hibernate generate better SQL for the chosen database
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
           time_zone: UTC
-    show-sql: true # Set true for debugging
-    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
     hibernate:
-      ddl-auto: update # (create, create-drop, validate, update)
+      ddl-auto: update
     open-in-view: false
-  sql:
-    init:
-      platform: h2
-      mode: always

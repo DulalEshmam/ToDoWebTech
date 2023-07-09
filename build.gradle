@@ -23,8 +23,7 @@ dependencies {
 	testImplementation 'org.mockito:mockito-junit-jupiter:3.11.2'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-	runtimeOnly 'com.h2database:h2'
-	testImplementation 'com.h2database:h2:1.4.200'
+	runtimeOnly 'org.postgresql:postgresql'
 
 }
 
